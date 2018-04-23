@@ -113,7 +113,7 @@ class App extends React.Component {
       res.json().then(function (data) {
         const restaurant = data.response.venues[0]
         let category, address
-        console.log(data.response.venues[0])
+        // console.log(data.response.venues[0])
         if (restaurant.categories[0].name) {
           category = `<p><b>Categories: </b>${restaurant.categories[0].name}</p>`
         }
