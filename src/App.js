@@ -47,6 +47,9 @@ class App extends React.Component {
     let script = document.createElement("script")
     script.async = true
     script.defer = true
+    script.onerror = function() {
+      document.write("The Google Maps API doesn't load!")
+    }
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-9mxlvsiVnVpdpRQhCBDAoVQdoBrbyM&v=3&callback=window.initMap"
     document.body.appendChild(script)
   }
@@ -95,7 +98,7 @@ class App extends React.Component {
       this.state.infoWindow.marker = marker
       // this.setState({infoWindow: {marker: marker}})
       this.state.infoWindow.open(this.state.map, marker)
-      // marker.setAnimation(window.google.maps.Animation.DROP)
+      marker.setAnimation(window.google.maps.Animation.DROP)
       this.state.infoWindow.addListener('closeClick', function() {
         this.state.infoWindow.setMarker(null)
       })
@@ -113,7 +116,6 @@ class App extends React.Component {
       res.json().then(function (data) {
         const restaurant = data.response.venues[0]
         let category, address
-        // console.log(data.response.venues[0])
         if (restaurant.categories[0].name) {
           category = `<p><b>Categories: </b>${restaurant.categories[0].name}</p>`
         }

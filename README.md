@@ -17,4 +17,15 @@ Use following command to start
 npm start
 ```
 
+## Service worker
+
+The service worker bundled with create-react-app only works in production mode. To enable it use:
+```bash
+npm run build
+```
+
+## Thanks to
+This project is created by the `create-react-app` and using *Foursquare API* and *Google Map API*, thank you!
+
+
 *This project is licensed under the terms of the MIT license.*

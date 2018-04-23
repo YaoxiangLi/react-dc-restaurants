@@ -58,7 +58,8 @@ class ListView extends Component {
               <li key={ index }>
                 <a
                   onClick={ showMarker.bind(this, marker) }
-                  tabIndex={ index }
+                  onKeyPress={ showMarker.bind(this, marker) }
+                  tabIndex="0"
                   role="button">{ marker.title }
                 </a>
               </li>
